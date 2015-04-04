@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F0DB914-8D10-41AC-9519-159F118CA716}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Labo.ServiceModel</RootNamespace>
+    <AssemblyName>Labo.ServiceModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Labo.Common">
+      <HintPath>..\packages\Labo.Commons.0.1.8\lib\net45\Labo.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Labo.Common.Ioc">
+      <HintPath>..\packages\Labo.Commons.Ioc.0.1.8\lib\net45\Labo.Common.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\BaseServiceClient.cs" />
+    <Compile Include="Client\IncomingMessageHeaderInfo.cs" />
+    <Compile Include="Client\ServiceRequestLogClientMessageInspector.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Host\BaseServiceHostFactory.cs" />
+    <Compile Include="Host\CoreInstanceProvider.cs" />
+    <Compile Include="Behavior\CoreServiceBehavior.cs" />
+    <Compile Include="Host\CoreServiceHost.cs" />
+    <Compile Include="CustomOutgoingMessageHeaderCreator.cs" />
+    <Compile Include="CustomOutgoingMessageHeaderCreatorCollection.cs" />
+    <Compile Include="MessageInspector\DispatchMessageInspectorCollection.cs" />
+    <Compile Include="Behavior\ErrorHandler.cs" />
+    <Compile Include="ICustomOutgoingMessageHeaderCreator.cs" />
+    <Compile Include="Behavior\IPFilterServiceBehavior.cs" />
+    <Compile Include="Behavior\IServiceIPFilterService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MessageInspector\ServiceRequestLogMessageInspector.cs" />
+    <Compile Include="MessageInspector\ServiceRequestInfo.cs" />
+    <Compile Include="Behavior\ServiceBehaviourCollection.cs" />
+    <Compile Include="Host\ServiceHostBuilder.cs" />
+    <Compile Include="Host\ServiceHostConfiguration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
